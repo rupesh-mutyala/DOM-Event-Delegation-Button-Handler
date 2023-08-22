@@ -1,16 +1,8 @@
 const onClick = (event) => {
-    if(event.target?.tagName === 'BUTTON') {
-        console.log('buttonid', event?.target?.id);
+    const button = event.target.closest('BUTTON');  // for getting the nearest button
 
-        event.stopPropagation();
-        event.preventDefault();
-
-        return;
-    } 
-    
-    const button = event.target.closest('BUTTON'); 
     if (button) {
-        console.log('buttonid', button.getAttribute('id'));
+        console.log('buttonid', button.getAttribute('id')); // logging the button that is clicked
 
         event.stopPropagation();
         event.preventDefault();
@@ -18,7 +10,7 @@ const onClick = (event) => {
         return;
     }
     
-    // else if(event?.target?.tagName === 'BODY') {
+    // else if(event?.target?.tagName === 'BODY') {  // we can do uding recursion as well
     //     console.log('buttonid', 'No button Present');
     // } else {
     //     onClick({ target:event?.target?.parentNode})
